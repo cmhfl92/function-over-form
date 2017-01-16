@@ -11,4 +11,161 @@ body {
   @include font-smoothing(on);
   margin: 0;
   font: $base-text-size / 1 $base-font-family;
+  min-height: 100%;
+  background-image: url('http://walops.com/wp-content/uploads/Matrix-Moving-Background-Wallpaper.jpg');
+}
+
+nav {
+  ul {
+    list-style: none;
+    padding-left: 0;
+    display: flex;
+    justify-content: center;
+    justify-content: space-around;
+    background-color: hotpink;
+    border: 2px solid white;
+    border-width: 10px;
+
+    button {
+      font-family: 'Amatic SC', cursive, black;
+      font-weight: bold;
+    }
+
+    li button.animation {
+      animation-duration: 2000ms;
+      animation-name: flash;
+      animation-iteration-count: infinite;
+      // animation-direction: alternate;
+    }
+
+    @keyframes flash {
+      0%,
+      50%,
+      100% {
+        opacity: 1;
+      }
+
+      25%,
+      75% {
+        opacity: 0;
+      }
+    }
+  }
+
+  li button.rubber:hover {
+    animation: shake 0.82s cubic-bezier(.36,.07,.19,.97) both;
+    transform: translate3d(0, 0, 0);
+    backface-visibility: hidden;
+    perspective: 1000px;
+  }
+
+  @keyframes shake {
+    10%,
+    90% {
+      transform: translate3d(-1px, 0, 0);
+    }
+
+    20%,
+    80% {
+      transform: translate3d(2px, 0, 0);
+    }
+
+    30%,
+    50%,
+    70% {
+      transform: translate3d(-4px, 0, 0);
+    }
+
+    40%,
+    60% {
+      transform: translate3d(4px, 0, 0);
+    }
+  }
+}
+
+li button.upper:hover {
+  animation: shake 0.82s cubic-bezier(.07,.36,.97,.19) both;
+  transform: translate3d(0, 0, 0);
+  backface-visibility: hidden;
+  perspective: 1000px;
+}
+
+@keyframes shake {
+  10%,
+  90% {
+    transform: translate3d(0, -1px, 0);
+  }
+
+  20%,
+  80% {
+    transform: translate3d(0, 2px, 0);
+  }
+
+  30%,
+  50%,
+  70% {
+    transform: translate3d(0, -4px, 0);
+  }
+
+  40%,
+  60% {
+    transform: translate3d(0, 4px, 0);
+  }
+}
+
+
+h1 {
+  color: #fff;
+  font-family: 'Indie Flower', cursive;
+  font-size: 6em;
+  animation-duration: 3s;
+  animation-name: slidein;
+}
+
+@keyframes slidein {
+  from {
+    margin-left: 100%;
+    width: 300%;
+    overflow: hidden;
+  }
+
+  to {
+    margin-left: 0%;
+    width: 100%;
+  }
+}
+
+img {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  flex-wrap: wrap;
+
+  img.dancing {
+    animation-name: lightSpeedIn;
+    animation-timing-function: ease-in;
+  }
+
+  @keyframes lightSpeedIn {
+    from {
+      transform: translate3d(100%, 0, 0) skewX(-30deg);
+      opacity: 0;
+    }
+
+    60% {
+      transform: skewX(20deg);
+      opacity: 1;
+    }
+
+    80% {
+      transform: skewX(-5deg);
+      opacity: 1;
+    }
+
+    to {
+      transform: none;
+      opacity: 1;
+    }
+  }
 }
